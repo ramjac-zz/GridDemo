@@ -10,15 +10,23 @@
 
 <body>
   <div class="site">
-    <h1 class="page-title">CSS Grid Demo</h1>
-    <nav>
+    <h1 class="page-title grid-box">CSS Grid Demo</h1>
+    <nav class="grid-box">
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/Components.html">JS Components</a></li>
-        <li><a href="/About.html">About</a></li>
+      </ul>
+      <hr />
+      <ul>
+        <li>
+          <label>Toggle grid-line visibility <input id="grid-lines" type="button" value="Off"/></label>
+        </li>
+        <li>
+          <label>Toggle grid background colors <input id="background-colors" type="button" value="Off"/></label>
+        </li>
       </ul>
     </nav>
-    <main>
+    <main class="grid-box">
       <p>This is a a demo of CSS Grid for HTML page layouts. This home page is a simple example. The JS Components page is a
         little more complex.
       </p>
@@ -33,12 +41,12 @@
         The Morten Rand-Hendriksen video that inspired this repo (I borrowed some of his code to start) from <a href="https://www.youtube.com/watch?v=7kVeCqQCxlk">WordCamp 2017</a>.
       </p>
     </main>
-    <aside>
+    <aside class="grid-box">
       <p>
         This site was built by <a href="https://github.com/ramjac">Grady Fields</a>. The code can be found on <a href="https://github.com/ramjac/GridDemo">Github</a>
       </p>
     </aside>
-    <footer>
+    <footer class="grid-box">
       <p>
         This site is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.
       </p>
