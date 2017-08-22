@@ -1,7 +1,7 @@
 window.onload = function () {
     // toggle area colors
     var showBackgroundColors = false;
-    document.getElementById('background-colors').addEventListener('click', function () {
+    document.getElementById('background-colors').addEventListener('click', function (event) {
         showBackgroundColors = !showBackgroundColors;
         if (showBackgroundColors) {
             var cnt = 0;
@@ -9,21 +9,12 @@ window.onload = function () {
                 element.style.backgroundColor = getColor(cnt);
                 cnt++;
             }
+            event.target.value= "On";
         } else {
             for(var element of  document.getElementsByClassName('grid-box')){
                 element.style.backgroundColor = "white";
             }
-        }
-    });
-
-    // toggle grid line visibility
-    var showGridLines = false;
-    document.getElementById('grid-lines').addEventListener('click', function () {
-        showGridLines = !showGridLines;
-        if (showGridLines) {
-
-        } else {
-
+            event.target.value= "Off";
         }
     });
 };
