@@ -1,2 +1,21 @@
 /* CSS reset and styles to make content look non-crappy */
 
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+html,
+body,
+#editor {
+    margin: 0;
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #201D1D;
+}
+
+textarea {
+    border: none;
+    resize: none;
+    outline: none;
+    background-color: rgba(246, 246, 246, 0.96);
+    font-family: 'Ubuntu Mono', monospace;
+}
