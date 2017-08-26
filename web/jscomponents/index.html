@@ -16,18 +16,20 @@
   <script src="https://unpkg.com/mithril" type="text/javascript"></script>
 
   <!-- Polymer -->
-
+  <script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="./files.html">
 
 </head>
 
 <body>
   <div class="site">
-    <h1 class="page-title grid-box">CSS Grid Demo</h1>
+    <h1 id="logo" class="page-title grid-box">CSS Grid Demo</h1>
     <nav class="grid-box">
       <ul>
         <li><a href="/basic/">Basic Demo</a></li>
         <li><a href="/jscomponents/">JS Components</a></li>
       </ul>
+      <file-manager></file-manager>
       <hr />
       <p>
         <label>
@@ -54,7 +56,6 @@
 
   <script src="./js/app.js" type="text/javascript"></script>
   <script src="./js/editor.js" type="text/javascript"></script>
-  <script src="./js/files.js" type="text/javascript"></script>
   <script src="./js/logo.js" type="text/javascript"></script>
 </body>
 

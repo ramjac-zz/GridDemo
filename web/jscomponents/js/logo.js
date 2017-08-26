@@ -1,17 +1,12 @@
-var root = document.body
+var root = document.getElementById("logo");
 var count = 0 // added a variable
 
-var Hello = {
+var Logo = {
 	view: function() {
-		return m("main", [
-			m("h1", {
+		return m("span", {
 				class: "title"
-			}, "My first app"),
-			m("button", {
-				onclick: function() {count++}
-			}, count + " clicks")
-		])
+			}, "CSS Grid Demo");
 	}
-}
+};
 
-m.mount(root, Hello)
+m.mount(root, Logo)

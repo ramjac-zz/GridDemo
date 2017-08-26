@@ -22,10 +22,9 @@
       grid-template-columns: 2fr 1fr;
       grid-gap: 1em;
       /* grid-template-rows: auto 1fr 3fr; */
-      grid-template-areas: "head head"
-                           "nav nav"
-                           "main main" 
-                           "footer footer";
+      grid-template-areas: "head nav"
+                            "main main" 
+                            "footer footer";
     }
     nav {
       grid-area: nav;
@@ -44,7 +43,7 @@
   @media screen and (min-width: 1200px) {
     .site {
       grid-template-columns: 1fr 3fr 2fr;
-      grid-template-areas: "head head head" 
+      grid-template-areas: "head main main" 
                            "nav main main"
                            "nav main main"
                            "footer footer footer";
@@ -58,7 +57,7 @@
 textarea, #editor div {
   display: inline-block;
   width: 49%;
-  height: 20em;
+  height: 100%;
   vertical-align: top;
   box-sizing: border-box;
   padding: 0 20px;
