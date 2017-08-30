@@ -40,13 +40,14 @@
     </nav>
     <main class="grid-box">
       <div id="editor">
-          <textarea :value="input" @input="update"></textarea>
-          <div v-html="compiledMarkdown"></div>
-        </div>
+        <textarea v-model="bouncy" @input="update"></textarea>
+        <div v-html="compiledMarkdown"></div>
+      </div>
     </main>
     <footer class="grid-box">
       <p>
-        This site builds on demos from <a href="https://vuejs.org/">Vue.js</a>, <a href="https://mithril.js.org/">Mithril.js</a>, and <a href="https://www.polymer-project.org/">Polymer 2</a>
+        This site builds on demos from <a href="https://vuejs.org/">Vue.js</a>, <a href="https://mithril.js.org/">Mithril.js</a>,
+        and <a href="https://www.polymer-project.org/">Polymer 2</a>
       </p>
       <p>
         This site was built by <a href="https://github.com/ramjac">Grady Fields</a>. The code can be found on <a href="https://github.com/ramjac/GridDemo">Github</a>

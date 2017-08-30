@@ -4,13 +4,19 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-html,
-body,
-#editor {
-    margin: 0;
+html, body {
+    margin: 1em;
     height: 100%;
     font-family: 'Ubuntu', sans-serif;
     color: #201D1D;
+}
+
+body{
+    margin: 0;
+}
+
+#editor{
+    height: 100%;
 }
 
 textarea {
