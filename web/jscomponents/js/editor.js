@@ -4,7 +4,7 @@ new Vue({
     //input: window.localStorage.getItem("file1") 
     input: '# hello css grid',
     bouncy: '# hello css grid',
-    data_title: 'temporary name'
+    current_file: 'temporary name'
   },
   computed: {
     compiledMarkdown: function () {
@@ -13,16 +13,22 @@ new Vue({
       })
     }
   },
+  created: function () {
+    // `this` points to the vm instance
+    console.log("ready fired");
+    window.addEventListener('add-file', e => this.addFile(e));
+    window.addEventListener('removed-file', e => this.handleRemove(e));
+  },
   methods: {
     getFileName: function (name) {
       var strReg = new RegExp('[A-Z a-z \s]+');
       // get the new name
-      var tmpName = strReg.exec(this.input)[0];
-      if (tmpName.length > 7) {
-        tmpName = tmpName.substr(0, 7).trim();
+      var tmpName = strReg.exec(this.input);
+      if (tmpName != null && tmpName[0].length > 7) {
+        tmpName = tmpName[0].substr(0, 7).trim();
       }
 
-      if (name !== tmpName) {
+      if (tmpName!=null && name !== tmpName) {
         window.localStorage.setItem(tmpName, this.input);
         window.localStorage.removeItem(name);
         name = tmpName;
@@ -31,7 +37,31 @@ new Vue({
     },
     update: _.debounce(function (e) {
       this.input = this.bouncy;
-      this.data_title = this.getFileName(this.data_title);
-    }, 300)
+      this.current_file = this.getFileName(this.current_file);
+
+      var evt = new Event("updated-file", {
+        "bubbles": true,
+        "cancelable": false,
+      });
+      window.dispatchEvent(evt);
+    }, 300),
+    handleRemove: function () {
+      console.log("Handling remove");
+
+      for (var i = 0; i < window.localStorage.length; i++) {
+        if (this.current_file === window.localStorage.key(i)) {
+          return;
+        }
+      }
+      this.addFile();
+    },
+    addFile: function () {
+      console.log("Adding file");
+      this.input = "# new file";
+      this.bouncy = "# new file";
+      this.current_file = null;
+    }
   }
-})
+});
+
+// window.addEventListener('updated-file', e => this.updateFileList(e));

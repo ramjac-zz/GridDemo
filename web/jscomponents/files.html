@@ -24,37 +24,35 @@
       static get is() {
         return "file-manager";
       }
+      ready() {
+        super.ready();
+        window.addEventListener('updated-file', e => this.updateFileList(e));
+      }
       constructor() {
         super();
-
-        window.localStorage.setItem("test1", "hello test 1");
-        window.localStorage.setItem("test 2", "hello test 2");
-        window.localStorage.setItem("test 3", "hello test 3");
-
         this.updateFileList();
       }
       addFile() {
         console.log("adding file");
         // call a function in the Vue component
-        //editor.openFile("New File");
+        var evt = new Event("add-file", {"bubbles":true, "cancelable":false});
+        window.dispatchEvent(evt);
       }
       removeFile(event) {
         console.log("removing file");
         console.log(event.target.value);
-
-        // call a function in the Vue component to check for what is open
-        // isopen = editor.openFile() === name;
-        // if (isopen) {
-        //   addFile();
-        // }
-
         // delete the file from localStorage
         window.localStorage.removeItem(event.target.value);
 
         this.updateFileList();
-      }
+
+        // Notify other components the file has been removed
+        var evt = new Event("removed-file", {"bubbles":true, "cancelable":false});
+        window.dispatchEvent(evt);
+        }
       updateFileList() {
-        this.files=[];
+        console.log("Updating file list");
+        this.files = [];
         for (var i = 0; i < window.localStorage.length; i++) {
           this.files.push({
             name: window.localStorage.key(i)
