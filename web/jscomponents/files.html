@@ -14,7 +14,12 @@
     <!-- Create a floating action button -->
     <ul>
       <template is="dom-repeat" items="{{files}}">
-        <li class="file">{{item.name}} <button on-click="removeFile" value={{item.name}}>X</button></li>
+        <li class="file">
+          <a href="#" on-click="openFile" value={{item.name}}>
+              {{item.name}}
+          </a>
+          <button on-click="removeFile" value={{item.name}}>X</button>
+        </li>
       </template>
     </ul>
   </template>
@@ -33,9 +38,22 @@
         this.updateFileList();
       }
       addFile() {
-        console.log("adding file");
         // call a function in the Vue component
-        var evt = new Event("add-file", {"bubbles":true, "cancelable":false});
+        var evt = new Event("add-file", {
+          "bubbles": true,
+          "cancelable": false
+        });
+        window.dispatchEvent(evt);
+      }
+      openFile(event) {
+        console.log("opening file");
+        console.log(event);
+        // call a function in the Vue component
+        var evt = new CustomEvent("open-file", {
+          "bubbles": true,
+          "cancelable": false,
+          "detail": event.target.value
+        });
         window.dispatchEvent(evt);
       }
       removeFile(event) {
@@ -47,9 +65,12 @@
         this.updateFileList();
 
         // Notify other components the file has been removed
-        var evt = new Event("removed-file", {"bubbles":true, "cancelable":false});
+        var evt = new Event("removed-file", {
+          "bubbles": true,
+          "cancelable": false
+        });
         window.dispatchEvent(evt);
-        }
+      }
       updateFileList() {
         console.log("Updating file list");
         this.files = [];
@@ -62,44 +83,5 @@
     }
 
     customElements.define(FileManager.is, FileManager);
-
-    /*
-    Polymer({
-      is: "file-manager",
-      properties: {
-        files: []
-      },
-      ready: function () {
-        window.localStorage.setItem("test1", "hello test 1");
-        window.localStorage.setItem("test 2", "hello test 2");
-        window.localStorage.setItem("test 3", "hello test 3");
-
-        this.updateFileList();
-      },
-      addFile: function () {
-        // call a function in the Vue component
-        //editor.openFile("New File");
-      },
-      removeFile: function (name) {
-        // call a function in the Vue component to check for what is open
-        // isopen = editor.openFile() === name;
-        // if (isopen) {
-        //   addFile();
-        // }
-
-        // delete the file from localStorage
-        window.localStorage.removeItem(name);
-
-        this.updateFileList();
-      },
-      updateFileList: function () {
-        for (var i = 0; i < window.localStorage.length; i++) {
-          this.files.push({
-            name: window.localStorage.key(i)
-          });
-        }
-      },
-    });
-    */
   </script>
 </dom-module>

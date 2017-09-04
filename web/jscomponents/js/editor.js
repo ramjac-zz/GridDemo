@@ -17,6 +17,7 @@ new Vue({
     // `this` points to the vm instance
     console.log("ready fired");
     window.addEventListener('add-file', e => this.addFile(e));
+    window.addEventListener('open-file', e => this.openFile(e));
     window.addEventListener('removed-file', e => this.handleRemove(e));
   },
   methods: {
@@ -28,11 +29,12 @@ new Vue({
         tmpName = tmpName[0].substr(0, 7).trim();
       }
 
-      if (tmpName!=null && name !== tmpName) {
-        window.localStorage.setItem(tmpName, this.input);
+      if (tmpName != null && name !== tmpName) {
         window.localStorage.removeItem(name);
         name = tmpName;
       }
+
+      window.localStorage.setItem(name, this.input);      
       return name;
     },
     update: _.debounce(function (e) {
@@ -47,7 +49,6 @@ new Vue({
     }, 300),
     handleRemove: function () {
       console.log("Handling remove");
-
       for (var i = 0; i < window.localStorage.length; i++) {
         if (this.current_file === window.localStorage.key(i)) {
           return;
@@ -60,6 +61,18 @@ new Vue({
       this.input = "# new file";
       this.bouncy = "# new file";
       this.current_file = null;
+    },
+    openFile: function (e) {
+      console.log(e);
+      console.log(e.detail);
+      for (var i = 0; i < window.localStorage.length; i++) {
+        if (e.detail === window.localStorage.key(i)) {
+          this.input = window.localStorage.getItem(e.detail);
+          this.bouncy = this.input;
+          this.current_file = e.detail;
+          return;
+        }
+      }
     }
   }
 });
