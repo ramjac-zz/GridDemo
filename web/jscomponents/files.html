@@ -6,10 +6,25 @@
     <style>
        :host {
         font-family: 'Ubuntu Condensed', sans-serif;
+        line-height: 1.75em;
+      }
+
+      h3{
+        margin: .5em 0;
+      }
+
+      ul{
+        margin: 0;
+        padding-left:.5em;
+        list-style: none;
+      }
+
+      button.add-remove {
+        float: right;
       }
     </style>
 
-    <h3>Files <button on-click="addFile">+</button></h3>
+    <h3>Files <button class="add-remove" on-click="addFile">+</button></h3>
 
     <!-- Create a floating action button -->
     <ul>
@@ -18,7 +33,7 @@
           <a href="#" on-click="openFile" value={{item.name}}>
               {{item.name}}
           </a>
-          <button on-click="removeFile" value={{item.name}}>X</button>
+          <button class="add-remove" on-click="removeFile" value={{item.name}}>X</button>
         </li>
       </template>
     </ul>

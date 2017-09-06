@@ -25,8 +25,9 @@ new Vue({
       var strReg = new RegExp('[A-Z a-z \s]+');
       // get the new name
       var tmpName = strReg.exec(this.input);
-      if (tmpName != null && tmpName[0].length > 7) {
-        tmpName = tmpName[0].substr(0, 7).trim();
+      if (tmpName != null && tmpName[0].length > 10) {
+        tmpName = tmpName[0].substr(0, 10).trim();
+        tmpName+="...";
       }
 
       if (tmpName != null && name !== tmpName) {

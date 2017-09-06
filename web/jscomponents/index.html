@@ -6,7 +6,8 @@
   <title>A static page</title>
   <link rel="stylesheet" href="./css/baseline.css">
   <link rel="stylesheet" href="./css/app.css">
-
+  <link rel="stylesheet" href="./css/editor.css">
+  
   <!-- Vue.js demo libraries -->
   <script src="https://unpkg.com/vue@latest/dist/vue.js" type="text/javascript"></script>
   <script src="https://unpkg.com/lodash@4.16.0" type="text/javascript"></script>
@@ -25,17 +26,14 @@
   <div class="site">
     <h1 id="logo" class="page-title grid-box">CSS Grid Demo</h1>
     <nav class="grid-box">
+      <file-manager></file-manager>
+      <hr />
       <ul>
         <li><a href="/basic/">Basic Demo</a></li>
         <li><a href="/jscomponents/">JS Components</a></li>
       </ul>
-      <file-manager></file-manager>
-      <hr />
       <p>
-        <label>
-          Toggle grid background colors 
-          <input id="background-colors" type="button" value="Off"/>
-        </label>
+        <button id="background-colors" type="button" value="Off">Toggle bg colors</button>
       </p>
     </nav>
     <main class="grid-box">
