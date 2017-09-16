@@ -24,8 +24,8 @@
       grid-template-rows: 1fr 2fr 1fr;
       grid-gap: .25em;
       grid-template-areas: ". head nav ."
-      ". main main ." 
-      ". footer footer .";
+                            ". main main ." 
+                            ". footer footer .";
     }
     nav {
       grid-area: nav;
