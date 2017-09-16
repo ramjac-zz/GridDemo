@@ -9,31 +9,76 @@
         line-height: 1.75em;
       }
 
-      h3{
+      h3 {
         margin: .5em 0;
       }
 
-      ul{
+      ul {
         margin: 0;
-        padding-left:.5em;
+        padding-left: .5em;
         list-style: none;
       }
 
-      button.add-remove {
+      ul>li {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+      }
+
+      button.menu-button {
         float: right;
+      }
+      /* Grid CSS */
+
+      @supports (display: grid) {
+        @media screen and (min-width: 450px) {
+          ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: .1em;
+          }
+
+          button.menu-button {
+            display: inherit;
+          }
+        }
+
+        @media screen and (min-width: 650px) {
+          ul {
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          button.menu-button {
+            display: inherit;
+          }
+        }
+
+        @media screen and (min-width: 1200px) {
+          ul {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: .25em;
+          }
+
+          button.menu-button {
+            display: none;
+          }
+        }
       }
     </style>
 
-    <h3>Files <button class="add-remove" on-click="addFile">+</button></h3>
+    <h3>Files
+      <button class="add-remove" on-click="addFile">+</button>
+      <button class="menu-button" on-click="toggle-menu">#</button>
+    </h3>
 
     <!-- Create a floating action button -->
-    <ul>
+    <ul id="file-list">
       <template is="dom-repeat" items="{{files}}">
         <li class="file">
+          <button class="add-remove" on-click="removeFile" value={{item.name}}>X</button>
           <a href="#" on-click="openFile" value={{item.name}}>
               {{item.name}}
           </a>
-          <button class="add-remove" on-click="removeFile" value={{item.name}}>X</button>
         </li>
       </template>
     </ul>

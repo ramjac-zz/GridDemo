@@ -20,13 +20,12 @@
     .site {
       height:100%;
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      grid-template-columns: .25em 1fr 2fr .25em;
       grid-template-rows: 1fr 2fr 1fr;
-      grid-gap: 1em;
-      /* grid-template-rows: auto 1fr 3fr; */
-      grid-template-areas: "head nav"
-      "main main" 
-      "footer footer";
+      grid-gap: .25em;
+      grid-template-areas: ". head nav ."
+      ". main main ." 
+      ". footer footer .";
     }
     nav {
       grid-area: nav;
@@ -44,11 +43,12 @@
 
   @media screen and (min-width: 1200px) {
     .site {
-      grid-template-columns: 1fr 3fr 2fr;
+      grid-template-columns: 1em 1fr 3fr 2fr 1em;
       grid-template-rows: 1fr 4fr 1fr;
-      grid-template-areas: "head main main" 
-                           "nav main main"
-                           "footer footer footer";
+      grid-gap: 1em;
+      grid-template-areas: ". head main main ." 
+                           ". nav main main ."
+                           ". footer footer footer .";
     }
   }
 }
