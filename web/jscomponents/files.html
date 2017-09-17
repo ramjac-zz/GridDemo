@@ -29,6 +29,12 @@
       button.menu-button {
         float: right;
       }
+
+      button.topcoat-button--cta{
+        margin: 0 .5em;
+        font-size: large;
+      }
+
       /* Grid CSS */
 
       @supports (display: grid) {
@@ -69,16 +75,16 @@
       }
     </style>
 
-    <h3>Files
-      <button class="add-remove" on-click="addFile">+</button>
-      <button class="menu-button" on-click="toggleMenu">#</button>
-    </h3>
+    <h2>Files
+      <button class="add-remove topcoat-button--cta" on-click="addFile">+</button>
+      <button class="menu-button topcoat-button--cta" on-click="toggleMenu">#</button>
+    </h2>
 
     <!-- Create a floating action button -->
     <ul id="file-list">
       <template is="dom-repeat" items="{{files}}">
         <li class="file">
-          <button class="add-remove" on-click="removeFile" value={{item.name}}>X</button>
+          <button class="add-remove topcoat-button--cta" on-click="removeFile" value={{item.name}}>x</button>
           <a href="#" on-click="openFile" value={{item.name}}>
               {{item.name}}
           </a>

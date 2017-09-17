@@ -12,7 +12,7 @@ window.onload = function () {
             event.target.value= "On";
         } else {
             for(var element of  document.getElementsByClassName('grid-box')){
-                element.style.backgroundColor = "white";
+                element.style.backgroundColor = '#dfe2e2';
             }
             event.target.value= "Off";
         }

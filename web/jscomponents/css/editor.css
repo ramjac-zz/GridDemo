@@ -10,18 +10,18 @@
   padding: 0 20px;
 }
 
-textarea {
-  border-right: 1px solid #ccc;
-  font-size: 14px;
-  padding: 20px;
+#editor div {
+  border: 2px solid whitesmoke;
 }
 
-code {
-  color: #f66;
+textarea {
+  border-right: 2px solid #ccc;
+  padding: 20px;
 }
 
 @media screen and (min-width: 800px) {
   #editor {
+    height: 100%;
     display: flex;
     flex-flow: row no-wrap;
     justify-content: center;
