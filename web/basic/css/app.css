@@ -58,8 +58,7 @@ html, body{
 
   @media screen and (min-width: 1900px) {
     .site {
-      grid-template-columns: 1fr 3fr 2fr;
-      grid-template-rows: 5em 2fr 2fr;            
+      grid-template-rows: 5em 1fr 1fr;            
       grid-template-areas: "head head head"
                            "nav main sidebar"
                            "nav main footer";
