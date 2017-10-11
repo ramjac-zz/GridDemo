@@ -1,0 +1,78 @@
+CSS Grid
+9 Oct 2017
+Tags: CSS, Grid
+
+Grady Fields
+Senior Consultant, CapTech
+gfields@captechconsulting.com
+https://github.com/ramjac
+
+* CSS Grid
+
+** About Me
+
+- Full Stack Web development
+- C#, Go, Javascript...
+- Curious where containers will go
+
+* Quck Demo
+
+.link https://grid-demo-180302.appspot.com/basic/ https://grid-demo-180302.appspot.com/basic/
+
+: Show the basic demo with it's responsiveness. Toggle the bg colors.
+: Open the developer tools to show the page's markup. One simple wrapper div. No CSS/JS libraries.
+
+* HTML
+
+    <div id="site">
+        <h1 ...
+        <nav ...
+        <main ...
+        <aside ...
+        <footer ...
+    </div>
+
+: Skip this slide in the presentation. It's here for people who don't see this live.
+
+* CSS (part 1)
+
+    nav {
+      grid-area: nav;
+    }
+    h1.page-title {
+      grid-area: head;
+    }
+    ...
+
+
+
+* CSS (part 2)
+
+    #site {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 1em;
+        grid-template-areas: "head head"
+                            "nav nav"
+                            "main sidebar" 
+                            "footer footer";
+        }
+
+Some More text
+
+  Preformatted text
+  is indented (however you like)
+
+Further Text, including invocations like:
+
+.code x.go /^func main/,/^}/
+.play y.go
+.image image.jpg
+.background image.jpg
+.iframe http://foo
+.link http://foo label
+.html file.html
+.caption _Gopher_ by [[https://www.instagram.com/reneefrench/][Renée French]]
+
+Again, more text
