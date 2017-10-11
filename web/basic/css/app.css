@@ -19,7 +19,7 @@ html, body{
 
 @supports (display: grid) {
   @media screen and (min-width: 800px) {
-    .site {
+    #site {
       height: 100%;
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -32,7 +32,7 @@ html, body{
     nav {
       grid-area: nav;
     }
-    .page-title {
+    h1.page-title {
       grid-area: head;
     }
     main {
