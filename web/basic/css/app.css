@@ -47,7 +47,7 @@ html, body{
   }
 
   @media screen and (min-width: 1200px) {
-    .site {
+    #site {
       grid-template-columns: 1fr 3fr 2fr;
       grid-template-rows: 5em 4fr 1fr;      
       grid-template-areas: "head head head" 
@@ -57,7 +57,7 @@ html, body{
   }
 
   @media screen and (min-width: 1900px) {
-    .site {
+    #site {
       grid-template-rows: 5em 1fr 1fr;            
       grid-template-areas: "head head head"
                            "nav main sidebar"
