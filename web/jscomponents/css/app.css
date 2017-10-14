@@ -1,21 +1,30 @@
-
-/*** Page Layout Grid ***/
-
 /* Check for Grid support. If not, display the mobile version */
 @supports not (display: grid) {
   nav,
   main,
   aside,
-  footer {
-    max-width: 65em;
+  footer,
+  h1.page-title {
     margin: 0 auto;
   }
 }
 
-
-/* Layouts for 2 screen sizes */
-
 @supports (display: grid) {
+  /* set the role of each component of the page */
+  nav {
+    grid-area: nav;
+  }
+  h1.page-title {
+    grid-area: head;
+  }
+  main {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+
+  /* Define the layout of the components for each screen size */
   @media screen and (min-width: 800px) {
     .site {
       height:100%;
@@ -26,18 +35,6 @@
       grid-template-areas: ". head nav ."
                             ". main main ." 
                             ". footer footer .";
-    }
-    nav {
-      grid-area: nav;
-    }
-    .page-title {
-      grid-area: head;
-    }
-    main {
-      grid-area: main;
-    }
-    footer {
-      grid-area: footer;
     }
   }
 
@@ -52,5 +49,3 @@
     }
   }
 }
-
-/*** End Page Layout ***/

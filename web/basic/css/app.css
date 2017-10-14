@@ -2,47 +2,55 @@ html, body{
   height: 100%;
 }
 
+nav,
+main,
+aside,
+footer,
+h1.page-title {
+  max-width: 65em;
+}
+
 /* Check for Grid support. If not, display the mobile version */
 
 @supports not (display: grid) {
   nav,
   main,
   aside,
-  footer {
-    max-width: 65em;
+  footer,
+  h1.page-title {
     margin: 0 auto;
   }
 }
 
-
-/* Layouts for 3 screen sizes */
-
 @supports (display: grid) {
+  /* set the role of each component of the page */
+  nav {
+    grid-area: nav;
+  }
+  h1.page-title {
+    grid-area: head;
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: sidebar;
+  }
+  footer {
+    grid-area: footer;
+  }
+
+  /* Define the layout of the components for each screen size */
   @media screen and (min-width: 800px) {
     #site {
-      height: 100%;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      grid-gap: 1em;
-      grid-template-areas: "head head"
-                           "nav nav"
-                           "main sidebar" 
-                           "footer footer";
-    }
-    nav {
-      grid-area: nav;
-    }
-    h1.page-title {
-      grid-area: head;
-    }
-    main {
-      grid-area: main;
-    }
-    aside {
-      grid-area: sidebar;
-    }
-    footer {
-      grid-area: footer;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: 1em;
+        grid-template-areas: "head head"
+                            "nav nav"
+                            "main sidebar" 
+                            "footer footer";
     }
   }
 
@@ -58,7 +66,7 @@ html, body{
 
   @media screen and (min-width: 1900px) {
     #site {
-      grid-template-rows: 5em 1fr 1fr;            
+      grid-template-rows: 5em 1fr 1fr;
       grid-template-areas: "head head head"
                            "nav main sidebar"
                            "nav main footer";

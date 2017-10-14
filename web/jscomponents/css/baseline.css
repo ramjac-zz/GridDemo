@@ -5,19 +5,19 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 html,
 body {
-    margin: 1em;
+    margin: 0;
     height: 100%;
     font-family: 'Ubuntu', sans-serif;
     color: #201D1D;
     font-size: small;
 }
 
-body {
-    margin: 0;
-}
-
-h1 {
-    margin: 0;
+nav,
+main,
+aside,
+footer,
+h1.page-title {
+  max-width: 65em;
 }
 
 textarea {
